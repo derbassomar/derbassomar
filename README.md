@@ -2,7 +2,7 @@
 
 -  👨🏻‍💻Desenvolvedor Back End Jr ...
 - 📚cursando Análise e Desenvolvimento de Sistemas ...
-- 
+  
 
 <h1>Tecnologias que mais utilizo</h1>
 
