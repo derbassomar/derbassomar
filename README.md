@@ -1,16 +1,17 @@
-<h1 align="center">oi pessoal! Eu sou o deerbasomar</h1>
+<h1 align="left">Olá, eu sou Omar Derbas!</h1>
 
 ###
 
-<p align="center">👨🏻‍💻Desenvolvedor front end</p>
+<p align="left">Meus projetos pessoais são focados em Front-End, design e resolução de problemas, aplicando os conhecimentos adquiridos nas linguagens abaixo</p>
 
 ###
 
-<p align="center">📚cursando Análise e Desenvolvimento de Sistemas</p>
+<div align="left">
+</div>
 
 ###
 
-<h2 align="center">Tecnologias que mais utilizo</h2>
+<h2 align="center">Minhas principais habilidades:</h2>
 
 ###
 
@@ -25,8 +26,63 @@
 ###
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=derbassomar&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&order=1" height="150" alt="stats graph"  />
   <img src="https://github-readme-stats.vercel.app/api/top-langs?username=derbassomar&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false&order=2" height="150" alt="languages graph"  />
+  <img src="https://github-readme-stats.vercel.app/api?username=derbassomar&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&order=1" height="150" alt="stats graph"  />
 </div>
 
 ###
+
+<h2 align="center">Contato</h2>
+
+###
+
+<div align="center">
+  <a href="https://www.linkedin.com/in/omar-derbas-5b5630265/" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=LinkedIn&logo=linkedin&label=&color=0077B5&logoColor=white&labelColor=&style=for-the-badge" height="40" alt="linkedin logo"  />
+  </a>
+  <a href="https://outlook.live.com/mail/0/junkemail" target="_blank">
+    <img src="https://img.shields.io/static/v1?message=Gmail&logo=gmail&label=&color=D14836&logoColor=white&labelColor=&style=for-the-badge" height="40" alt="gmail logo"  />
+  </a>
+</div>
+
+###
+
+<img src="https://raw.githubusercontent.com/derbassomar/derbassomar/output/snake.svg" alt="Snake animation" />
+
+###
+
+
+name: Generate snake animation
+
+on:
+  schedule: # execute every 12 hours
+    - cron: "* */12 * * *"
+
+  workflow_dispatch:
+
+  push:
+    branches:
+    - master
+
+jobs:
+  generate:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: generate snake.svg
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: dist/snake.svg?palette=github-dark
+
+
+      - name: push snake.svg to the output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
