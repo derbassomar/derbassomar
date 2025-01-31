@@ -52,7 +52,8 @@
 ###
 
 
-name: Generate snake animation
+<script>
+  name: Generate snake animation
 
 on:
   schedule: # execute every 12 hours
@@ -86,3 +87,4 @@ jobs:
           build_dir: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+</script>
